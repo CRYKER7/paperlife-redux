@@ -1,17 +1,21 @@
 import React,{ useReducer, useEffect } from 'react'
-/* import { TYPES } from '../Actions/shoppingActions'; */
+import { useSelector, useDispatch } from 'react-redux'; 
+import { db } from '../firebase/firebaseConfig'
+
+import { TYPES } from '../Actions/shoppingActions';
 /* import { shoppingInitialState, shoppingReducer } from '../Reducers/shoppingReducer' */
 import CartItem from '../Components/CartItems';
 import ProductItem from '../Components/ProductItems';
 import NavBar from '../Components/Navbar';
-import { useSelector, useDispatch } from 'react-redux'; 
-import { db } from '../firebase/firebaseConfig'
-/* import { stock, consultaStock } from '../Funciones/slice'; */
+
+import { stock, consultaStock } from '../features/slice';
+import Footer from '../Components/Footer';
 
 const ShoppingCart = () => {
-
+    const products = useSelector(consultaStock);
     const dispatch = useDispatch();
-    /* useEffect(() => {
+
+    useEffect(() => {
         db.collection('productos')
         .onSnapshot((snapshot) => {
             dispatch(stock(snapshot.docs.map(doc => ({
@@ -26,8 +30,8 @@ const ShoppingCart = () => {
         })
     },[]) 
 
-    const products = useSelector(consultaStock);
-    */
+   
+    
     /*
     const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
 
@@ -51,22 +55,33 @@ const ShoppingCart = () => {
         <NavBar/>
         <div className="container-fluid mt-5 text-center">
            <h3>Productos</h3> 
-           {/* <div className="row justify-content-center">
-               {products.map((product) => (
-                <ProductItem 
+           <div className="row justify-content-center">
+           { products.map(product => (
+                <ProductItem
                 key={product.id} 
-                subId= {product.subId}
-                nombre={product.nombre}
-                description={product.descripcion}
-                precio={product.precio}
-                estatus={product.estatus}
                 categoria={product.categoria}
-                /* addToCart={addToCart} />
-                ))}
+                description={product.descripcion}
+                estatus={product.estatus}
+                nombre={product.nombre}
+                precio={product.precio}
+                subId= {product.subId}
+                />
+            ))}
+               {/*{products.map((product) => (
+                <ProductItem 
+                key={1} 
+                categoria={product.categoria}
+                description={product.descripcion}
+                estatus={product.estatus}
+                nombre={product.nombre}
+                precio={product.precio}
+                subId= {product.subId}
+                />
+               ))}*/}
                 
-           </div> */}
-           <h3>Carrito</h3>
-           {/* <div className="row justify-content-center">
+           </div> 
+           {/*<h3>Carrito</h3>
+           <div className="row justify-content-center">
                <button onClick={clearCart}  className="btn btn-light col-md-2 col-xs-2 ">Limpiar Carrito</button><hr/>
                {cart.map((item, index) => (
                 <CartItem key={index} data={item} delFromCart={delFromCart} />
@@ -74,6 +89,7 @@ const ShoppingCart = () => {
            </div> */}
            <br/>
            </div>
+           <Footer/>
             
         </>
     )
