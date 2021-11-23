@@ -1,20 +1,35 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 import { db } from '../firebase/firebaseConfig';
 
+
 const initialState = {
-    productos: []
+    todoList : []
 }
 
-const slice = createSlice({
-    name: 'productos',
+ const todoSlice = createSlice({
+    name: 'todos',
     initialState,
     reducers: {
-        stock: (state, actions) => {
-            state.productos = (actions.payload)
+        saveTodo: (state, actions) => {
+            state.todoList = (actions.payload)
+        },
+        setCheck: (state, actions) => {
+            /* state.todoList.map(item => {
+                if (actions.payload === item.id) {
+                    item.estatus = !item.estatus
+                }
+            }) */
+            (async () => {
+                const queryRef = db.collection('productos').doc(actions.payload);
+                const query = await queryRef.get();
+                query.data().estatus ? await queryRef.update({estatus: false}) : await queryRef.update({estatus:true})
+            })()
         }
     }
-});
+    });
 
-export const { stock } = slice.actions
-export const consultaStock = (state) => state.productos
-export default slice.reducer
+
+
+export const {saveTodo, setCheck} = todoSlice.actions
+export const consultaStock = (state) => state.todos.todoList
+export default todoSlice.reducer

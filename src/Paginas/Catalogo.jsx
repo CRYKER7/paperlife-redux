@@ -1,36 +1,35 @@
 import React,{ useReducer, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'; 
-import { db } from '../firebase/firebaseConfig'
+import { db, auth } from '../firebase/firebaseConfig'
 
-import { TYPES } from '../Actions/shoppingActions';
-/* import { shoppingInitialState, shoppingReducer } from '../Reducers/shoppingReducer' */
-import CartItem from '../Components/CartItems';
-import ProductItem from '../Components/ProductItems';
-import NavBar from '../Components/Navbar';
+import CartItem from '../components/CartItems';
+import ProductItem from '../components/ProductItems';
+import { consultaStock, saveTodo } from '../features/slice';
 
-import { stock, consultaStock } from '../features/slice';
-import Footer from '../Components/Footer';
+import NavBar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const ShoppingCart = () => {
-    const products = useSelector(consultaStock);
+
+    const productosLista = useSelector(consultaStock);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        db.collection('productos')
-        .onSnapshot((snapshot) => {
-            dispatch(stock(snapshot.docs.map(doc => ({
-            idProducto: doc.id,
-            subId: doc.data().subId,
-            nombre: doc.data().nombre,
-            description: doc.data().descripcion,
-            precio: doc.data().precio,
-            estatus: doc.data().estatus,
-            categoria: doc.data().categoria,
-        }))))
-        })
+        //console.log('re render');
+        db.collection('productos').orderBy('categoria', "asc")
+            .onSnapshot((snapshot) => {
+                dispatch(saveTodo(snapshot.docs.map(product => ({
+                    idProducto: product.id,
+                    subId: product.data().subId,
+                    nombre: product.data().nombre,
+                    description: product.data().descripcion,
+                    precio: product.data().precio,
+                    estatus: product.data().estatus,
+                    categoria: product.data().categoria,
+                }))))
+            })
     },[]) 
-
-   
+    
     
     /*
     const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
@@ -56,17 +55,24 @@ const ShoppingCart = () => {
         <div className="container-fluid mt-5 text-center">
            <h3>Productos</h3> 
            <div className="row justify-content-center">
-           { products.map(product => (
-                <ProductItem
-                key={product.id} 
-                categoria={product.categoria}
-                description={product.descripcion}
-                estatus={product.estatus}
-                nombre={product.nombre}
-                precio={product.precio}
-                subId= {product.subId}
-                />
-            ))}
+               {
+                   productosLista ? <>
+                   { 
+                        productosLista.map(producto => (
+                            <ProductItem
+                                key={producto.idProducto} 
+                                categoria={producto.categoria}
+                                description={producto.descripcion}
+                                estatus={producto.estatus}
+                                nombre={producto.nombre}
+                                precio={producto.precio}
+                                subId= {producto.subId}
+                            />
+                        ))
+                    }
+                    </> : 
+                    <h1>Sin productos</h1>
+                }
                {/*{products.map((product) => (
                 <ProductItem 
                 key={1} 

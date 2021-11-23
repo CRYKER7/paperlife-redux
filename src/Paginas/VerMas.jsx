@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { TYPES } from '../Actions/shoppingActions';
 import { shoppingInitialState, shoppingReducer } from '../Reducers/shoppingReducer'
 
-import Footer from '../Components/Footer';
-import NavBar from '../Components/Navbar';
+import Footer from '../components/Footer';
+import NavBar from '../components/Navbar';
 
 const CharacterScreen =({ history }) => {
     const { id } = useParams();
@@ -14,6 +14,7 @@ const CharacterScreen =({ history }) => {
     /*const { type, name, description } = Characters.find((character) => character.id === id);*/
     const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
     let producto = state.products.find(product => product.idProducto === id);
+    
     let {idProducto, subId, nombre, precio, categoria, description} = producto;
     //console.log(producto);
 
