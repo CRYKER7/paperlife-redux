@@ -1,7 +1,7 @@
 import { TYPES } from "../Actions/shoppingActions";
 
 export const shoppingInitialState = {
-    cart: []
+    cart: [] //crear este como local storage
 };
 
 export function shoppingReducer(state, action) {    
