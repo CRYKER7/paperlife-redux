@@ -9,7 +9,7 @@ import NavBar from '../components/Navbar';
 
 const CharacterScreen =({ history }) => {
     const { id } = useParams();
-    //console.log(id);
+    console.log(id);
 
     /*const { type, name, description } = Characters.find((character) => character.id === id);*/
     const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);

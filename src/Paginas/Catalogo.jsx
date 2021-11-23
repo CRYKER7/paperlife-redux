@@ -32,21 +32,21 @@ const ShoppingCart = () => {
     
     
     /*
-    const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
+    const [state, dispatcher] = useReducer(shoppingReducer, shoppingInitialState);
 
     const {products, cart} = state;
     
     const addToCart = (id) => {
         //console.log(id)
-        dispatch({type:TYPES.ADD_TO_CART,payload: id});
+        dispatcher({type:TYPES.ADD_TO_CART,payload: id});
     };
 
     const delFromCart = (id) => {
-        dispatch({types:TYPES.REMOVE_FROM_CART, payload:id})
+        dispatcher({types:TYPES.REMOVE_FROM_CART, payload:id})
     };
     
     const clearCart = () => {
-        dispatch({type:TYPES.CLEAR_CART});
+        dispatcher({type:TYPES.CLEAR_CART});
     };
 */
     return (
