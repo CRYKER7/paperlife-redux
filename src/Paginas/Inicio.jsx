@@ -1,7 +1,7 @@
 import React from 'react'
-import Footer from '../Components/Footer'
-import Header from '../Components/Header'
-import NavBar from '../Components/Navbar'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import NavBar from '../components/Navbar'
 
 const Inicio = () => {
     return (

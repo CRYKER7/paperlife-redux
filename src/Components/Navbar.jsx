@@ -5,6 +5,7 @@ const NavBar = () => {
 
     
     return (
+        <>
         <nav className="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div className="container-fluid">
                 <NavLink className="nav-brand text-uppercase text-white" to="/">
@@ -30,7 +31,7 @@ const NavBar = () => {
                             <NavLink className="active text-uppercase text-white" to="/productos">Catálago</NavLink>
                         </li>
                         <li className="nav-item px-lg-4 mt-sm-5 mt-md-0">
-                            {/*<NavLink className="active text-uppercase text-white" to="/contacto">Contacto</NavLink>*/}
+                            <NavLink className="active text-uppercase text-white" to="/registroProducto">Registro</NavLink>
                         </li>
                     </ul>
                     <div className="nav-item ">
@@ -40,15 +41,17 @@ const NavBar = () => {
                         </NavLink>
                     </div>
                     <div className="nav-item px-lg-4 d-flex mt-sm-5 mt-md-0">
-                        <NavLink className="active text-uppercase text-white" to="/contacto">
+                        <NavLink className="active text-uppercase text-white" to="/login">
                             <img className="logo" src="/img/usuario.png" alt="user icon"/>&nbsp;&nbsp;Login
-                            </NavLink>
+                        </NavLink>
                         <br/><br/>
                     </div>
                     
                 </div>
             </div>
         </nav>
+
+        </>
     )
 }
 

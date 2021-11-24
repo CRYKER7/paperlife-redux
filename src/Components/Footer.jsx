@@ -8,7 +8,7 @@ const Footer = () => {
                     <div className="col-3">
                         <p className="mb-0">Correo Electronico<br/> 
                             <img src="/img/email.png" alt="email icon"/>
-                            contactto@paperlife.com
+                            contactopaperlife@gmail.com
                         </p>    
                     </div>
                     <div className="col-3">

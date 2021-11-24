@@ -7,7 +7,7 @@ import { shoppingInitialState, shoppingReducer } from '../Reducers/shoppingReduc
 import Footer from '../components/Footer';
 import NavBar from '../components/Navbar';
 
-const CharacterScreen =({ history }) => {
+const ProductScreen =({ history }) => {
     const { id } = useParams();
     console.log(id);
 
@@ -52,4 +52,4 @@ const CharacterScreen =({ history }) => {
     );
 };
 
-export default CharacterScreen;
+export default ProductScreen;
