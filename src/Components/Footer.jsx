@@ -12,7 +12,7 @@ const Footer = () => {
                         </p>    
                     </div>
                     <div className="col-3">
-                        <p className="m-0 small">Derechos reservados &copy; RexGame 2021</p>      
+                        <p className="m-0 small">Derechos reservados &copy; &hi; RexGames 2021</p>      
                     </div>  
                     <div className="col-3">  
                         <p>

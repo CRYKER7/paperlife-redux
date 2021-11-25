@@ -47,6 +47,20 @@ const RegistroProducto = () => {
                             </div>
                         </div>
 
+                        <div class="form-group required row mb-3">
+                            <label for="precio" class="control-label col-md-4 requiredField text-start">Imagen del producto<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" id="imagen"  name="imagen" type="file" accept=".jpg" />
+                            </div>
+                        </div>
+
+                        <div class="form-group required row mb-3">
+                            <label for="precio" class="control-label col-md-4 requiredField text-start">Documento del producto<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" id="producto"  name="producto" type="file" accept=".pdf" />
+                            </div>
+                        </div>
+
                         <div class="form-group required row mb-3 col-2">
                             <button class="btn btn-info" type="submit">GUARDAR</button>
                         </div>
