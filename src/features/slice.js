@@ -6,6 +6,8 @@ const initialState = {
     todoList : []
 }
 
+
+
  const todoSlice = createSlice({
     name: 'todos',
     initialState,
@@ -24,7 +26,14 @@ const initialState = {
                 const query = await queryRef.get();
                 query.data().estatus ? await queryRef.update({estatus: false}) : await queryRef.update({estatus:true})
             })()
+        },
+        upload: () => {
+
+        },
+        addToCart: () => {
+            
         }
+
     }
     });
 

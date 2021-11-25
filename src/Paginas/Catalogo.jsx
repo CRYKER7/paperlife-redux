@@ -1,10 +1,9 @@
-import React,{ useReducer, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'; 
-import { db, auth } from '../firebase/firebaseConfig'
+import React from 'react'
+import { useSelector } from 'react-redux'; 
 
-import CartItem from '../components/CartItems';
+//import CartItem from '../components/CartItems';
 import ProductItem from '../components/ProductItems';
-import { consultaStock, saveTodo } from '../features/slice';
+import { consultaStock } from '../features/slice';
 
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -12,23 +11,6 @@ import Footer from '../components/Footer';
 const ShoppingCart = () => {
 
     const productosLista = useSelector(consultaStock);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        //console.log('re render');
-        db.collection('productos').orderBy('categoria', "asc")
-            .onSnapshot((snapshot) => {
-                dispatch(saveTodo(snapshot.docs.map(product => ({
-                    idProducto: product.id,
-                    subId: product.data().subId,
-                    nombre: product.data().nombre,
-                    description: product.data().descripcion,
-                    precio: product.data().precio,
-                    estatus: product.data().estatus,
-                    categoria: product.data().categoria,
-                }))))
-            })
-    },[]) 
     
     
     /*
@@ -60,7 +42,8 @@ const ShoppingCart = () => {
                    { 
                         productosLista.map(producto => (
                             <ProductItem
-                                key={producto.idProducto} 
+                                key={producto.idProducto}
+                                idProducto={producto.idProducto}
                                 categoria={producto.categoria}
                                 description={producto.descripcion}
                                 estatus={producto.estatus}
