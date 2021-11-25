@@ -60,7 +60,8 @@ const ShoppingCart = () => {
                    { 
                         productosLista.map(producto => (
                             <ProductItem
-                                key={producto.idProducto} 
+                                key={producto.idProducto}
+                                idProducto={producto.idProducto}
                                 categoria={producto.categoria}
                                 description={producto.descripcion}
                                 estatus={producto.estatus}
