@@ -17,40 +17,17 @@ const ProductScreen =({ history }) => {
     const productosLista = useSelector(consultaStock);
     //const dispatch = useDispatch();
 
-
     const { id } = useParams();
     console.log(id);
 
-    //console.log(productosLista)
+    console.log(productosLista)
     
     function unProducto(productosLista){
         return productosLista.idProducto == id
     }
 
-    const { idProducto, subId, nombre, description, categoria, precio } = productosLista.find(unProducto);
+    const { subId, nombre, description, categoria, precio } = productosLista.find(unProducto);
     
-    //const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
-    //let producto = state.products.find(product => product.idProducto === id);
-    
-    /* useEffect(() => {
-        //console.log('re render');
-        db.collection('productos')
-            .onSnapshot((snapshot) => {
-                producto(snapshot.docs.map(product => ({
-                    idProducto: product.id,
-                    subId: product.data().subId,
-                    nombre: product.data().nombre,
-                    description: product.data().descripcion,
-                    precio: product.data().precio,
-                    estatus: product.data().estatus,
-                    categoria: product.data().categoria,
-                }))))
-            })
-    },[])  */
-
-    //let {idProducto, subId, nombre, precio, categoria, description} = producto;
-    //console.log(producto);
-
     const path = `/img/products/${categoria}/${subId}.jpg`;
     
     /* const addToCart = (id) => {
