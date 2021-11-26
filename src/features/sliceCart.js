@@ -6,8 +6,6 @@ const initialState = {
     cartList : [],
 }
 
-
-
  const todoSlice = createSlice({
     name: 'cart',
     initialState,
