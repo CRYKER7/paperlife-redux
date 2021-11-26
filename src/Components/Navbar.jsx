@@ -79,7 +79,8 @@ const NavBar = () => {
                     <div className="nav-item px-lg-4 d-flex mt-sm-5 mt-md-0 ml-5">
                         {
                             user ? 
-                            <>
+                            <>  
+                                <p>{user.name}</p>
                                 <button className="salir btn" onClick={salir}>Salir</button>
                             </> :
                                 <button className="google btn" type="button" onClick={loginGoogle}>Ingresar con Google</button>
