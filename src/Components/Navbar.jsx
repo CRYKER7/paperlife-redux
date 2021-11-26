@@ -5,7 +5,7 @@ import { consultaCart } from '../features/slice';
 import { auth } from '../firebase/firebaseConfig'
 import firebase from 'firebase';
 
-import { Login } from '../components/Login';
+import { Login } from './Login';
 import { sesion, logout, selectUser } from '../features/userSlice';
 
 

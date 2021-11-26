@@ -23,7 +23,7 @@ const initialState = {
                 }
             }) */
             (async () => {
-                const queryRef = db.collection('productos').doc(actions.payload);
+                const queryRef = db.collection('productos').orderBy('categoria').doc(actions.payload);
                 const query = await queryRef.get();
                 query.data().estatus ? await queryRef.update({estatus: false}) : await queryRef.update({estatus:true})
             })()
