@@ -15,12 +15,11 @@ const NavBar = () => {
     const dispatch = useDispatch();
 
     const cart = localStorage.getItem('cart');
-    let cant = [];
-
+    let cant = []
     useEffect(() => {
         cant = JSON.parse(cart)
-        console.log(cant.length)
-    },[])
+        //console.log(cant.length)
+    },cant)
 
     useEffect(() => {
         auth.onAuthStateChanged(userAuth => {
@@ -81,12 +80,12 @@ const NavBar = () => {
                                         <NavLink className="active text-uppercase text-white" to="/registroProducto">Registro</NavLink>
                                     </li>
                                     <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-3 col-xs-12 m-3 m-md-0">
-                                    <NavLink className="active text-uppercase text-white" to="/perfil">{user.name}</NavLink>
+                                        <NavLink className="active text-uppercase text-white" to="/perfil">Perfil</NavLink>
                                     </li>
                                 </>
                             :
                                 <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-5 col-xs-12 m-3 m-md-0">
-                                    <NavLink className="active text-uppercase text-white" to="/perfil">{user.name}</NavLink>
+                                    <NavLink className="active text-uppercase text-white" to="/perfil">Perfil</NavLink>
                                 </li>
                             :
                                 <>  </>
@@ -102,9 +101,9 @@ const NavBar = () => {
                         {
                             user ? 
                             <>  
-                                <button className="salir btn" onClick={salir}>Salir</button>
+                                <button className="salir btn btn-propio" onClick={salir}>Salir</button>
                             </> :
-                                <button className="google btn" type="button" onClick={loginGoogle}>Ingresar</button>
+                                <button className="google btn btn-propio" type="button" onClick={loginGoogle}>Ingresar</button>
 
                                 /*
                             <NavLink className="active text-uppercase text-white" to="/login">

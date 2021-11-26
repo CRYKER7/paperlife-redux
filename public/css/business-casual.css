@@ -421,7 +421,30 @@ a {
   border: 1px black solid;
 }
 */
+.btn-propio{
+  background: rgba(255, 255, 255, 0.555);
+}
+.btn-propio:hover{
+  box-shadow: #000 inset;
+  background: rgba(255, 255, 255, 0.459);
+}
 
+.userData > div > h5, .userData > div > h4{
+  width: 80%;
+  padding-top: 1%;
+  background: rgba(211, 211, 211, 0.514);
+  margin-top: 10px;
+  border-radius: 30px;
+}
+
+.userData{
+  width: 80%;
+  text-align: center;
+  padding-top: 1%;
+  background: rgba(211, 211, 211, 0.514);
+  margin-top: 10px;
+  border-radius: 30px;
+}
 .login {
   width: 30%;
   text-align: center;

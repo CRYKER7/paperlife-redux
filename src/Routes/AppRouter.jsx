@@ -10,6 +10,8 @@ import ProductScreen from '../Paginas/VerMas';
 import Catalogo from '../Paginas/Catalogo';
 import Inicio from '../Paginas/Inicio';
 import RegistroProducto from '../Paginas/RegistroProducto';
+import Cart from '../Paginas/Cart';
+import User from '../Paginas/User';
 
 
 const AppRouter = () => {
@@ -54,9 +56,9 @@ const AppRouter = () => {
                 <Route path="/" element={<Inicio/>} />    
                 <Route exact path="/productos" element={<Catalogo />} />
                 <Route path="/producto/:id" element={<ProductScreen/> } />
-                <Route exat path="/registroProducto" element=
-                {<RegistroProducto/> } />
-                {/* <Route exat path="/login" element={<Login/> } /> */}
+                <Route exat path="/registroProducto" element={<RegistroProducto/> } />
+                <Route exat path="/carrito" element={<Cart /> } /> 
+                <Route exat path="/perfil" element={<User /> } /> 
                 {/* Redirect cambio por Navigate to */}
                 <Route path="*" element={<Inicio/>} />
             </Routes>

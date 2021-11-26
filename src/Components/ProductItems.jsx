@@ -17,9 +17,10 @@ export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
              let data = JSON.parse(localStorage.getItem('cart'));
             let nuevo = {
                 'idProducto': idProducto,
+                'subId': subId,
+                'categoria': categoria,
                 'nombre': nombre,
                 'precio': precio,
-                'user': user.uid
             }
             let existe = localStorage.getItem('cart');
             if(data == null){
