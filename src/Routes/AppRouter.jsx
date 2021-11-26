@@ -1,22 +1,21 @@
 import React,{ useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'; 
+import {  useDispatch } from 'react-redux'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { db, auth } from '../firebase/firebaseConfig'
 import { saveTodo } from '../features/slice';
-import { sesion, logout, selectUser } from '../features/userSlice';
+import { sesion, logout } from '../features/userSlice';
 
 import ProductScreen from '../Paginas/VerMas';
 import Catalogo from '../Paginas/Catalogo';
 import Inicio from '../Paginas/Inicio';
 import RegistroProducto from '../Paginas/RegistroProducto';
 
-import { Login } from '../components/Login';
 
 const AppRouter = () => {
 
     const dispatch = useDispatch();
-    const user = useSelector(selectUser)
+    //const user = useSelector(selectUser)
 
     useEffect(() => {
         auth.onAuthStateChanged(userAuth => {

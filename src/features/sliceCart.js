@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { db } from '../firebase/firebaseConfig';
+//import { db } from '../firebase/firebaseConfig';
 
 
 const initialState = {
@@ -10,20 +10,15 @@ const initialState = {
     name: 'cart',
     initialState,
     reducers: {
-        saveTodo: (state, actions) => {
+        addTo: (state, actions) => {
+            let data = JSON.parse(localStorage.getItem('cart'));
+            let nuevo = {
+                
+            }
+            data.push(nuevo);
+
             state.cartList = (actions.payload)
-        },
-        setCheck: (state, actions) => {
-            /* state.cartList.map(item => {
-                if (actions.payload === item.id) {
-                    item.estatus = !item.estatus
-                }
-            }) */
-            (async () => {
-                const queryRef = db.collection('productos').doc(actions.payload);
-                const query = await queryRef.get();
-                query.data().estatus ? await queryRef.update({estatus: false}) : await queryRef.update({estatus:true})
-            })()
+
         },
         upload: () => {
 
@@ -35,6 +30,6 @@ const initialState = {
 
     
 
-export const { saveTodo, setCheck } = todoSlice.actions
+export const { addTo, setCheck } = todoSlice.actions
 export const consultaStock = (state) => state.cart.cartList
 export default todoSlice.reducer
