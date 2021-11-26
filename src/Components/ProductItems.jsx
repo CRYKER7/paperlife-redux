@@ -1,9 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'; 
+import { addTo } from '../features/slice';
 
 export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
     const path = `/img/products/${categoria}/${subId}.jpg`;
     
+    const dispatch = useDispatch();
+
+    const addToCart = (id) => {
+        console.log(id)
+        dispatch(addTo(id));
+    };
+
     return (
         <div className="col-xs-10 col-md-4" >
             <div className="card align-items-center text-center">
@@ -16,7 +25,7 @@ export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
                 <div className="col-10 text-center">
                     <h4 className="card-text col-8 text-center">$ {precio}.00 MXN</h4> 
                     <Link className="card-text btn col-8 " to={`/producto/${idProducto}` }>Ver Más ...</Link>
-                    {/* <button className="btn btn-light col-8" onClick={() => addToCart(idProducto)} >Agregar</button> */}
+                    <button className="btn btn-light col-8" onClick={() => addToCart(idProducto)} >Agregar</button>
                 </div>
             </div>
         </div>

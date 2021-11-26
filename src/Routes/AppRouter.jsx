@@ -15,14 +15,13 @@ const AppRouter = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        //console.log('re render');
         db.collection('productos').orderBy('categoria', "asc")
             .onSnapshot((snapshot) => {
                 dispatch(saveTodo(snapshot.docs.map(product => ({
                     idProducto: product.id,
                     subId: product.data().subId,
                     nombre: product.data().nombre,
-                    description: product.data().descripcion,
+                    description: product.data().description,
                     precio: product.data().precio,
                     estatus: product.data().estatus,
                     categoria: product.data().categoria,

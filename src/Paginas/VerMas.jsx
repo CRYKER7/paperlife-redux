@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'; 
@@ -15,6 +15,7 @@ const ProductScreen =({ history }) => {
 
     const productosLista = useSelector(consultaStock);
     //const dispatch = useDispatch();
+    
 
     const { id } = useParams();
     console.log(id);
@@ -52,11 +53,11 @@ const ProductScreen =({ history }) => {
         <>
         <NavBar/>
         
-        <div className="container mt-5 mb-5 text-center ">
+        <div className="container mt-5 mb-5 text-center">
             <div className="card text-center align-items-center row" >
                 <div className="row col-12">
-                    <div className="col-md-3 col-xs-10 d-flex align-items-center" style={{ width: "400px", height: "400px"}}>
-                        <img className="card-img" src={path} alt={nombre} style={{ width: "90%", height: "90%"}} />
+                    <div className="col-md-3 col-xs-12 text-center">
+                        <img className="card-img" src={path} alt={nombre} />
                     </div>
                     <div className="col-xs-10 col-md-5 align-items-start text-start mt-3 card-text">
                         <h3 className="card-title row"># {subId} - {nombre}</h3>

@@ -11,26 +11,7 @@ import Footer from '../components/Footer';
 const ShoppingCart = () => {
 
     const productosLista = useSelector(consultaStock);
-    
-    
-    /*
-    const [state, dispatcher] = useReducer(shoppingReducer, shoppingInitialState);
-
-    const {products, cart} = state;
-    
-    const addToCart = (id) => {
-        //console.log(id)
-        dispatcher({type:TYPES.ADD_TO_CART,payload: id});
-    };
-
-    const delFromCart = (id) => {
-        dispatcher({types:TYPES.REMOVE_FROM_CART, payload:id})
-    };
-    
-    const clearCart = () => {
-        dispatcher({type:TYPES.CLEAR_CART});
-    };
-*/
+   
     return (
         <>
         <NavBar/>

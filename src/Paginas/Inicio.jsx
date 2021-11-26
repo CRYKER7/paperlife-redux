@@ -9,7 +9,7 @@ const Inicio = () => {
             <NavBar/>
             <Header/>
 
-            <h1 className="site-heading text-center text-white d-none d-md-block mt-5"> 
+            <h1 className="site-heading text-center text-white d-md-block mt-5"> 
                 <span className="site-heading-upper text-primary mb-3">Qué es Paperlife?</span>
             </h1>
 
