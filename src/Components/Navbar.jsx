@@ -12,9 +12,9 @@ const NavBar = () => {
                     <img src="/logo192.png" alt="" className="logo" />PaperLife
                 </NavLink>
                 
-                <NavLink className="active containerZ text-uppercase text-white" to="/carrito">
-                    <img className="iconsss sirender" src="/img/carrito.png" alt="carrito icon"/>
-                    <div className="inCart sirender text-center">1</div>
+                <NavLink className="active containerZ text-uppercase text-white sirender mb-4" to="/carrito">
+                    <img className="iconsss" src="/img/carrito.png" alt="carrito icon"/>
+                    <div className="inCart">1</div>
                  </NavLink>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbaNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,25 +22,25 @@ const NavBar = () => {
                 </button> 
             
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav mx-auto mb-2 mb-lg-0 row text-center">
                         
-                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0">
+                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-4 col-xs-12 m-3 m-md-0">
                             <NavLink className="active text-uppercase text-white" to="/">Inicio</NavLink>
                         </li>
-                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0">
+                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-4 col-xs-12 m-3 m-md-0">
                             <NavLink className="active text-uppercase text-white" to="/productos">Catálago</NavLink>
                         </li>
-                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0">
+                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-4 col-xs-12 m-3 m-md-0">
                             <NavLink className="active text-uppercase text-white" to="/registroProducto">Registro</NavLink>
                         </li>
                     </ul>
-                    <div className="nav-item ">
+                    <div className="nav-item mr-3 norender row">
                         <NavLink className="active containerZ text-uppercase text-white" to="/carrito">
-                            <img className="iconsss norender" src="/img/carrito.png" alt="carrito icon"/>
-                            <div className="inCart norender text-center align-items-center ">1</div>
+                            <img className="iconsss" src="/img/carrito.png" alt="carrito icon"/>
+                            <div className="inCart">1</div>
                         </NavLink>
                     </div>
-                    <div className="nav-item px-lg-4 d-flex mt-sm-5 mt-md-0">
+                    <div className="nav-item px-lg-4 d-flex mt-sm-5 mt-md-0 ml-5">
                         <NavLink className="active text-uppercase text-white" to="/login">
                             <img className="logo" src="/img/usuario.png" alt="user icon"/>&nbsp;&nbsp;Login
                         </NavLink>

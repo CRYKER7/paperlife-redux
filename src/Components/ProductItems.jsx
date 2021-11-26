@@ -14,7 +14,7 @@ export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
                     </Link>
                 </div>
                 <div className="col-10 text-center">
-                    <h4 className="card-text col-8">$ {precio}.00 MXN</h4> 
+                    <h4 className="card-text col-8 text-center">$ {precio}.00 MXN</h4> 
                     <Link className="card-text btn col-8 " to={`/producto/${idProducto}` }>Ver Más ...</Link>
                     {/* <button className="btn btn-light col-8" onClick={() => addToCart(idProducto)} >Agregar</button> */}
                 </div>

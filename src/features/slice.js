@@ -14,6 +14,7 @@ const initialState = {
     reducers: {
         saveTodo: (state, actions) => {
             state.todoList = (actions.payload)
+            //localStorage.setItem("todos", JSON.stringify(state))
         },
         setCheck: (state, actions) => {
             /* state.todoList.map(item => {
