@@ -1,10 +1,45 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux'; 
 import { NavLink } from 'react-router-dom';
 import { consultaCart } from '../features/slice';
-import { useSelector } from 'react-redux';
+import { auth } from '../firebase/firebaseConfig'
+import firebase from 'firebase';
+
+import { Login } from '../components/Login';
+import { sesion, logout, selectUser } from '../features/userSlice';
+
+
+
 
 const NavBar = () => {
-    
+
+    const user = useSelector(selectUser)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        auth.onAuthStateChanged(userAuth => {
+            if (userAuth) {
+                dispatch(sesion({
+                    email:userAuth.email,
+                    name: userAuth.displayName,
+                    uid: userAuth.uid
+                }))
+            }
+            else {
+                dispatch(logout)
+            }
+        })
+    },[])
+
+    const salir = () => {
+        dispatch(logout())
+        auth.signOut()
+    }
+    const loginGoogle = async () => {
+        const provider = new firebase.auth.GoogleAuthProvider()
+        await auth.signInWithPopup(provider)
+    }
+
     return (
         <>
         <nav className="navbar navbar-expand-lg navbar-light" id="mainNav">
@@ -42,9 +77,20 @@ const NavBar = () => {
                         </NavLink>
                     </div>
                     <div className="nav-item px-lg-4 d-flex mt-sm-5 mt-md-0 ml-5">
-                        <NavLink className="active text-uppercase text-white" to="/login">
-                            <img className="logo" src="/img/usuario.png" alt="user icon"/>&nbsp;&nbsp;Login
-                        </NavLink>
+                        {
+                            user ? 
+                            <>
+                                <button className="salir btn" onClick={salir}>Salir</button>
+                            </> :
+                                <button className="google btn" type="button" onClick={loginGoogle}>Ingresar con Google</button>
+
+                                /*
+                            <NavLink className="active text-uppercase text-white" to="/login">
+                                <img className="logo" src="/img/usuario.png" alt="user icon"/>&nbsp;&nbsp;Login 
+                            </NavLink>
+                            */
+                        }
+                        
                         <br/><br/>
                     </div>
                     

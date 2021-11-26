@@ -5,7 +5,7 @@
  */
 
 body {
-  font-family: "Lora";
+  font-family: "Kareon";
   background-image: linear-gradient(#f96d00, #f2f2f242), url("../img/bg.jpg");
   background-attachment: fixed;
   background-position: center;
@@ -420,4 +420,59 @@ a {
 * {
   border: 1px black solid;
 }
-*
+*/
+
+.login {
+  width: 30%;
+  text-align: center;
+  padding-top: 1%;
+  background: rgba(155, 155, 155, 0.514);
+  margin-top: 10px;
+  border-radius: 30px;
+}
+.login > form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8%;
+}
+.login > form > input {
+  margin: 10px 0;
+  height: 40px;
+  border: none;
+  outline: 0;
+  border-radius: 12px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+.login > form > button {
+  margin-top: 8%;
+  height: 40px;
+  border: none;
+  background-color: #cf7437;
+  border-radius: 30px;
+  transition: 0.3s ease-in-out;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  outline: 0;
+}
+.login > form > button:hover {
+  background-color: #b35e25;
+}
+.login > p {
+  margin-top: 12%;
+}
+.login > p > span {
+  color: #863c0a;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.login > form > .google {
+  background: #f84728;
+  transition: 0.3s ease-in-out;
+}
+.login > form > .google:hover {
+  background: #ec4123;
+}
