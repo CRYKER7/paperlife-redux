@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 //import { TYPES } from '../Actions/shoppingActions';
 //import { shoppingInitialState, shoppingReducer } from '../Reducers/shoppingReducer'
-import { consultaStock,  } from '../features/slice';
+import { consultaStock  } from '../features/slice';
 
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';

@@ -1,16 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux'; 
-import { addTo } from '../features/slice';
+//import { useDispatch } from 'react-redux'; 
+import { useSelector } from 'react-redux'; 
+
+import { selectUser } from '../features/userSlice';
+//import { addTo } from '../features/sliceCart';
 
 export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
     const path = `/img/products/${categoria}/${subId}.jpg`;
-    
-    const dispatch = useDispatch();
+    const user = useSelector(selectUser)
 
-    const addToCart = (id) => {
-        console.log(id)
-        dispatch(addTo(id));
+    //const dispatch = useDispatch();
+
+    const addToCart = (idProducto) => {
+            //localStorage.clear();    
+             let data = JSON.parse(localStorage.getItem('cart'));
+            let nuevo = {
+                'idProducto': idProducto,
+                'nombre': nombre,
+                'precio': precio,
+                'user': user.uid
+            }
+            let existe = localStorage.getItem('cart');
+            if(data == null){
+                data = [];
+            }
+            if(existe == null){
+                existe = "";
+            }
+            
+            if(!existe.includes(idProducto)){
+                data.push(nuevo);
+                localStorage.setItem('cart', JSON.stringify(data)) 
+            }
+            console.log(existe)
     };
 
     return (

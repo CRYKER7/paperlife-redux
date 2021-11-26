@@ -4,7 +4,6 @@ import { db } from '../firebase/firebaseConfig';
 
 const initialState = {
     todoList : [],
-    cartList: []
 }
 
 
@@ -36,21 +35,7 @@ const initialState = {
     }
     });
 
-    const todoCart = createSlice ({
-        name: 'cart',
-        initialState,
-        reducers: {
-            addTo: (state, actions) => {
-                state.cartList = (actions.payload)
-                //localStorage.setItem("cart", JSON.stringify(actions.payload))
-            }
-        }
-    })
-
 export const { saveTodo, setCheck } = todoSlice.actions
 export const consultaStock = (state) => state.todos.todoList
-
-export const { addTo } = todoCart.actions
-export const consultaCart = (state) => state.cart.cartList
 
 export default todoSlice.reducer
