@@ -18,7 +18,7 @@ const AppRouter = () => {
 
     const dispatch = useDispatch();
     const user = useSelector(selectUser)
-
+    
     useEffect(() => {
         auth.onAuthStateChanged(userAuth => {
             if (userAuth) {
@@ -56,16 +56,20 @@ const AppRouter = () => {
                 <Route path="/" element={<Inicio/>} />    
                 <Route exact path="/productos" element={<Catalogo />} />
                 <Route path="/producto/:id" element={<ProductScreen/> } />
-                { user === "contactopaperlife@gmail.com" ? 
-                <Route exat path="/registroProducto" element={<RegistroProducto/> } />
-                : 
-                <Route exat path="/registroProducto" element={<Inicio/> } />
+                { user ? 
+                    user.email === "contactopaperlife@gmail.com" ? 
+                        <Route exat path="/registroProducto" element={<RegistroProducto/> } />    
+                        :
+                        <Route exat path="/registroProducto" element={<Inicio/> } />
+                    :  
+                    <></>
+
                 }
                 
-
                 <Route exat path="/carrito" element={<Cart /> } /> 
                 <Route exat path="/perfil" element={<User /> } /> 
-                {/* Redirect cambio por Navigate to */}
+               
+               {/* Redirect cambio por Navigate to */}
                 <Route path="*" element={<Inicio/>} />
             </Routes>
         </Router>

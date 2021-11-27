@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 //import { useDispatch } from 'react-redux'; 
-import { useSelector } from 'react-redux'; 
+//import { useSelector } from 'react-redux'; 
 
-import { selectUser } from '../features/userSlice';
+//import { selectUser } from '../features/userSlice';
 //import { addTo } from '../features/sliceCart';
 
 export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
     const path = `/img/products/${categoria}/${subId}.jpg`;
-    const user = useSelector(selectUser)
+    //const user = useSelector(selectUser)
 
     //const dispatch = useDispatch();
 
@@ -32,7 +32,8 @@ export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
             
             if(!existe.includes(idProducto)){
                 data.push(nuevo);
-                localStorage.setItem('cart', JSON.stringify(data)) 
+                localStorage.setItem('cart', JSON.stringify(data))
+                window.location.reload()
             }
             console.log(existe)
     };

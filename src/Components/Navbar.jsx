@@ -1,4 +1,4 @@
-import React,{ useEffect} from 'react';
+import React,{ useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux'; 
 import { NavLink } from 'react-router-dom';
 //import { consultaCart } from '../features/slice';
@@ -15,13 +15,14 @@ const NavBar = () => {
     const dispatch = useDispatch();
 
     const cart = localStorage.getItem('cart');
-    let cant = [];
-    let cantInCart = 0;
+    const [cant, setCant] = useState([])
+    const [cantInCart, setCantInCart] = useState( 0 )
+
     useEffect(() => {
-        cart ? cant = JSON.parse(cart) : cant = 0
-        cantInCart = cant.length;
-        console.log(cant.length)
-    },cant)
+        cart ? setCant(JSON.parse(cart)) : setCant(0)
+         setCantInCart(cant.length)
+        //console.log(cantInCart)
+    },[])
 
     useEffect(() => {
         auth.onAuthStateChanged(userAuth => {
@@ -85,7 +86,7 @@ const NavBar = () => {
                                         <NavLink className="active text-uppercase text-white" to="/perfil">Perfil</NavLink>
                                     </li>
                                 </>
-                            :
+                                :
                                 <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-5 col-xs-12 m-3 m-md-0">
                                     <NavLink className="active text-uppercase text-white" to="/perfil">Perfil</NavLink>
                                 </li>

@@ -20,7 +20,7 @@ const Inicio = () => {
                     <p>No importa si quieres divertirte un rato, hacer una actividad con tu familia y amigos, o crear ese regalo para esa persona tan especial para ti, Paperlife es tu mejor opción para conseguir los mejores modelos de papercraft.</p>
                 </div>
                 <div className="div-img col-12 col-lg-6 m-0 p-0">
-                    <img className="imagen" src="./img/unicornioSlider.png" alt="" />
+                    <img className="imagen" src="/img/unicornioSlider.png" alt="" />
                 </div>
             </section>
 

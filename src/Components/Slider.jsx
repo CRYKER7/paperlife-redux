@@ -8,31 +8,32 @@ const Slider = () => {
                 <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active"></li>
                 <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
                 <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></li>
             </ol>
 
             <div className="carousel-inner">
                 
                 <div className="carousel-item active">
-                    <a href="/"><img src="img/aguilaSlider.png" className="d-block w-100" alt="..."/></a>
+                    <a href="/productos"><img src="/img/sliders/Banner_Productos.jpg" className="d-block w-100" alt="..."/></a>
                     <div className="carousel-caption">
-                        <h5>ArdillaCraft</h5>
-                        <p>Ver más detalles.</p>
                     </div>
                 </div>
                 
                 <div className="carousel-item">
-                    <a href="/"><img src="img/ardillaSlider.png" className="d-block w-100" alt="..."/></a>
+                    <a href="/productos/StarWars"><img src="/img/sliders/Banner_StarWars.jpg" className="d-block w-100" alt="..."/></a>
                     <div className="carousel-caption">
-                        <h5>ArdillaCraft</h5>
-                        <p>Ver más detalles.</p>
                     </div>
                 </div>
 
                 <div className="carousel-item">
-                    <a href="/"><img src="img/camaleonSlider.png" className="d-block w-100" alt="..."/></a>
+                    <a href="/productos/Pokemon"><img src="/img/sliders/Banner_Pokemon.jpg" className="d-block w-100" alt="..."/></a>
                     <div className="carousel-caption">
-                        <h5>CamaleónCraft</h5>
-                        <p>Ver más detalles.</p>
+                    </div>
+                </div>
+
+                <div className="carousel-item">
+                    <a href="/productos/HoraAventura"><img src="/img/sliders/Banner_HoraAventura.jpg" className="d-block w-100" alt="..."/></a>
+                    <div className="carousel-caption">
                     </div>
                 </div>
 
