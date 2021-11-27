@@ -31,6 +31,7 @@ const ShoppingCart = () => {
                                 nombre={producto.nombre}
                                 precio={producto.precio}
                                 subId= {producto.subId}
+                                img={producto.img}
                             />
                         ))
                     }

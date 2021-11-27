@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 //import { useDispatch } from 'react-redux'; 
 import { useSelector } from 'react-redux'; 
 
 import { selectUser } from '../features/userSlice';
+import { storage } from '../firebase/firebaseConfig';
 //import { addTo } from '../features/sliceCart';
 
-export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
-    const path = `/img/products/${categoria}/${subId}.jpg`;
+export const ProductItem = ({ idProducto, subId, nombre, precio, categoria, img }) => {
+    //const path = `/img/products/${categoria}/${subId}.jpg`;
+    const [path, setPath] = useState('')
+    const getUrl = async () => {
+        setPath(await storage.ref(img).getDownloadURL());
+    }
+    getUrl();
     const user = useSelector(selectUser)
 
     //const dispatch = useDispatch();
@@ -56,4 +62,4 @@ export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
     )
 }
 
-export default Card
+export default ProductItem
