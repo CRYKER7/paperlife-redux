@@ -15,10 +15,12 @@ const NavBar = () => {
     const dispatch = useDispatch();
 
     const cart = localStorage.getItem('cart');
-    let cant = []
+    let cant = [];
+    let cantInCart = 0;
     useEffect(() => {
-        cant = JSON.parse(cart)
-        //console.log(cant.length)
+        cart ? cant = JSON.parse(cart) : cant = 0
+        cantInCart = cant.length;
+        console.log(cant.length)
     },cant)
 
     useEffect(() => {
@@ -56,7 +58,7 @@ const NavBar = () => {
                 
                 <NavLink className="active containerZ text-uppercase text-white sirender mb-4" to="/carrito">
                     <img className="iconsss" src="/img/carrito.png" alt="carrito icon"/>
-                    <div className="inCart">{cant.length}</div>
+                    <div className="inCart">{cantInCart}</div>
                  </NavLink>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbaNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,7 +96,7 @@ const NavBar = () => {
                     <div className="nav-item mr-3 norender row">
                         <NavLink className="active containerZ text-uppercase text-white" to="/carrito">
                             <img className="iconsss" src="/img/carrito.png" alt="carrito icon"/>
-                            <div className="inCart">{cant.length}</div>
+                            <div className="inCart">{cantInCart}</div>
                         </NavLink>
                     </div>
                     <div className="nav-item px-lg-4 d-flex mt-sm-5 mt-md-0 ml-5">

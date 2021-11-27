@@ -61,9 +61,9 @@ const ProductScreen =({ history }) => {
                     </div>
                     <div className="col-xs-10 col-md-9 align-items-start text-start mt-3 card-text">
                         <h3 className="card-title row text-uppercase"># {subId} - {nombre}</h3>
-                        <h3 className="card-text row text-uppercase">{description}</h3>
-                        <h3 className="card-text row text-uppercase">Categoria: {categoria}</h3>
-                        <h4 className="card-text row text-uppercase">Precio:$ {precio}.00 MXN</h4> 
+                        <h3 className="card-text row ">{description}</h3>
+                        <h3 className="card-text row ">Categoria: {categoria}</h3>
+                        <h4 className="card-text row ">Precio:$ {precio}.00 MXN</h4> 
                         <div className="card-text row text-center align-items-center">
                             {/* <button onClick={() => addToCart(idProducto)} className="btn btn-light col-5">Agregar</button>&nbsp;&nbsp;&nbsp; */}
                             <Link to="/productos" className="btn btn-warning col-5">Regresar</Link>

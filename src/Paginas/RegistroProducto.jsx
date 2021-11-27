@@ -40,6 +40,7 @@ const RegistroProducto = () => {
     
     return (
         <>
+        
         <NavBar/>
         <div className="container">
             <section className="page-section row overflow-hidden ms-0 me-0">
