@@ -1,10 +1,10 @@
 import React,{ useEffect } from 'react'
-import {  useDispatch } from 'react-redux'; 
+import {  useDispatch, useSelector } from 'react-redux'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { db, auth } from '../firebase/firebaseConfig'
 import { saveTodo } from '../features/slice';
-import { sesion, logout } from '../features/userSlice';
+import { sesion, logout, selectUser } from '../features/userSlice';
 
 import ProductScreen from '../Paginas/VerMas';
 import Catalogo from '../Paginas/Catalogo';
@@ -17,8 +17,8 @@ import User from '../Paginas/User';
 const AppRouter = () => {
 
     const dispatch = useDispatch();
-    //const user = useSelector(selectUser)
-
+    const user = useSelector(selectUser)
+    
     useEffect(() => {
         auth.onAuthStateChanged(userAuth => {
             if (userAuth) {
@@ -57,10 +57,20 @@ const AppRouter = () => {
                 <Route path="/" element={<Inicio/>} />    
                 <Route exact path="/productos" element={<Catalogo />} />
                 <Route path="/producto/:id" element={<ProductScreen/> } />
-                <Route exat path="/registroProducto" element={<RegistroProducto/> } />
+                { user ? 
+                    user.email === "contactopaperlife@gmail.com" ? 
+                        <Route exat path="/registroProducto" element={<RegistroProducto/> } />    
+                        :
+                        <Route exat path="/registroProducto" element={<Inicio/> } />
+                    :  
+                    <></>
+
+                }
+                
                 <Route exat path="/carrito" element={<Cart /> } /> 
                 <Route exat path="/perfil" element={<User /> } /> 
-                {/* Redirect cambio por Navigate to */}
+               
+               {/* Redirect cambio por Navigate to */}
                 <Route path="*" element={<Inicio/>} />
             </Routes>
         </Router>

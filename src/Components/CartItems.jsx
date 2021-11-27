@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const CartItems = ({data, delFromCart}) => {
-    let {idProducto, subId, nombre, precio, categoria, quantity} = data;
+    let {idProducto, subId, nombre, precio, categoria} = data;
     const path = `/img/products/${categoria}/${subId}.jpg`;
 
     return (

@@ -421,6 +421,13 @@ a {
   border: 1px black solid;
 }
 */
+.vermasImg{
+  width: 90%;
+  height: auto;
+  margin: 10px;
+
+}
+
 .btn-propio{
   background: rgba(255, 255, 255, 0.555);
 }
@@ -498,4 +505,33 @@ a {
 }
 .login > form > .google:hover {
   background: #ec4123;
+}
+
+
+#jAlert_table, #jAlert_th, #jAlert_td{
+  border: 2px solid blue;
+  background-color:lightblue;
+  border-collapse: collapse;
+  width: 100px;
+}
+
+#jAlert_th, #jAlert_td{
+  padding:5px;
+  padding-right:10px;
+  padding-left:10px;
+}
+
+#jAlert{
+  /* Position fixed */
+  position:fixed;
+  /* Center it! */
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+
+.ocultar{
+  z-index: 2;
+  display: none;
 }

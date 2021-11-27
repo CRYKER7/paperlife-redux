@@ -14,9 +14,13 @@ const clearCart = () => {
     localStorage.clear()
 }
 
-const delFromCart = () => {
+const delFromCart = (idCart) => {
+    return cart.filter(function(ele){ 
+        return ele !== idCart; 
+    });
     
 }
+
 
     return (
         <>
