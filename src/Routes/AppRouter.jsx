@@ -45,6 +45,7 @@ const AppRouter = () => {
                     precio: product.data().precio,
                     estatus: product.data().estatus,
                     categoria: product.data().categoria,
+                    img: product.data().img
                 }))))
             })
     },[]) 

@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 //import { useDispatch } from 'react-redux'; 
-//import { useSelector } from 'react-redux'; 
+import { useSelector } from 'react-redux'; 
 
-//import { selectUser } from '../features/userSlice';
+import { selectUser } from '../features/userSlice';
+import { storage } from '../firebase/firebaseConfig';
 //import { addTo } from '../features/sliceCart';
 
-export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
-    const path = `/img/products/${categoria}/${subId}.jpg`;
-    //const user = useSelector(selectUser)
+export const ProductItem = ({ idProducto, subId, nombre, precio, categoria, img }) => {
+    //const path = `/img/products/${categoria}/${subId}.jpg`;
+    const [path, setPath] = useState('')
+    const getUrl = async () => {
+        setPath(await storage.ref(img).getDownloadURL());
+    }
+    getUrl();
+    const user = useSelector(selectUser)
 
     //const dispatch = useDispatch();
 
@@ -32,8 +38,7 @@ export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
             
             if(!existe.includes(idProducto)){
                 data.push(nuevo);
-                localStorage.setItem('cart', JSON.stringify(data))
-                window.location.reload()
+                localStorage.setItem('cart', JSON.stringify(data)) 
             }
             console.log(existe)
     };
@@ -43,7 +48,7 @@ export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
             <div className="card align-items-center text-center">
                 <div className="col-12 d-flex text-center row mb-md-4 mb-xs-1" >
                     <Link className="card-link text-black" to={`/producto/${idProducto}` }>
-                        <h3 className="card-title text-uppercase tutulo-personal">#{subId} - {nombre} </h3>
+                        <h3 className="card-title text-uppercase tutulo-personal">#{subId} {nombre} </h3>
                         <img className="card-img-top" src={path} alt={nombre} style={{ width: "80%", height: "80%"}} />
                     </Link>
                 </div>
@@ -57,4 +62,4 @@ export const Card = ({ idProducto, subId, nombre, precio, categoria }) => {
     )
 }
 
-export default Card
+export default ProductItem

@@ -1,24 +1,45 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../components/Footer'
 import NavBar from '../components/Navbar'
-import { db } from '../firebase/firebaseConfig'
+import { db, storage } from '../firebase/firebaseConfig'
 
 const RegistroProducto = () => {
+    const uploadImg = async () => {
+        let img = document.querySelector("#imagen").files[0];
+        let storageImg = storage.ref().child(`img/${categoria}/${subId}.jpg`);
+        await storageImg.put(img);
+        return storageImg;
+    }
+    const uploadPdf = async () => {
+        let pdf = document.querySelector("#producto").files[0];
+        let storagePdf = storage.ref().child(`pdf/${categoria}/${subId}.pdf`);
+        await storagePdf.put(pdf);
+        return storagePdf;
+    }
+
+    const publish = async () => {
+        let storageImg = await uploadImg();
+        let storagePdf = await uploadPdf();
+        RegistrarProducto(storageImg.fullPath, storagePdf.fullPath);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        RegistrarProducto();
+        publish();
     }
-    const RegistrarProducto = () => {
+    const RegistrarProducto = async (imgPath, pdfPath) => {
         db.collection("productos").add({
             categoria: categoria,
             description: descripcion,
             estatus: true,
             nombre: nombre,
             precio: precio,
-            subId: subId
+            subId: subId,
+            img: imgPath,
+            pdf: pdfPath
         })
         .then((docRef) => {
-            console.log("Ya jalo, se es: ", docRef.id);
+            console.log("Ya jalo: ", docRef.id);
         })
         .catch((error) => {
             console.error("Error adding document: ", error);
