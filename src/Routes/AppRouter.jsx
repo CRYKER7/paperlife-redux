@@ -12,6 +12,8 @@ import Inicio from '../Paginas/Inicio';
 import RegistroProducto from '../Paginas/RegistroProducto';
 import Cart from '../Paginas/Cart';
 import User from '../Paginas/User';
+import { addTo } from '../features/sliceCart';
+
 
 
 const AppRouter = () => {
@@ -49,6 +51,14 @@ const AppRouter = () => {
                 }))))
             })
     },[]) 
+
+    useEffect(() => {
+        dispatch(addTo({
+            
+        }))        
+    }, [])
+
+
     
     return (
         <>

@@ -1,4 +1,4 @@
-import React /*,{ useRef }*/ from "react";
+import React,{ useState } from "react";
 
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom';
@@ -7,40 +7,44 @@ import { useSelector } from 'react-redux';
 //import { TYPES } from '../Actions/shoppingActions';
 //import { shoppingInitialState, shoppingReducer } from '../Reducers/shoppingReducer'
 import { consultaStock  } from '../features/slice';
+import { storage } from '../firebase/firebaseConfig';
 
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 
 const ProductScreen =({ history }) => {
-    //const {child, parent, contenido, buttonOK} = useRef();
-    //console.log(child.current);
-
     const productosLista = useSelector(consultaStock);
     //const dispatch = useDispatch();
     
-
     const { id } = useParams();
-    //console.log(id);
-
-    //console.log(productosLista)
+    
     function unProducto(productosLista){
         return productosLista.idProducto === id
     }
     const producto = productosLista.find(unProducto);
     
-    let { subId, nombre, precio, description, categoria } = []
-    let path;
-    //console.log(producto)
+    let { subId, nombre, precio, description, categoria, img } = []
+    
+  
     if(producto){
         subId = producto.subId;
         nombre = producto.nombre;
         precio = producto.precio;
         description = producto.description;
         categoria = producto.categoria;
-        path = `/img/products/${categoria}/${subId}.jpg`;
+        img = producto.img;
+        //path = `/img/products/${categoria}/${subId}.jpg`;
         //console.log(subId)
     }
+
+    const [path, setPath] = useState('')
+    const getUrl = async () => {
+        setPath(await storage.ref(img).getDownloadURL());
+    }
+    getUrl();
+
+
    
     const addToCart = (idProducto) => {
         let data = JSON.parse(localStorage.getItem('cart'));
@@ -66,31 +70,6 @@ const ProductScreen =({ history }) => {
         }
         //console.log(existe)
     };  
-   /*
-    function jAlert(text, customokay){
-        //console.log(contenido.current)
-        const butoton = buttonOK.current
-        const contenidodo = contenido.current
-
-        contenidodo.innerHTML = text;
-        butoton.innerHTML = customokay;
-        
-        document.body.style.backgroundColor = "gray";
-        document.body.style.cursor="wait";
-    }
-    
-    function jAlertagree(){
-        //console.log(child.current)
-        const parent = parent.current
-        const child = child.current
-        //this.child.removeChild()
-        parent.removeChild(child);
-        //child.classList.toggle("ocultar")
-        document.body.style.backgroundColor="white";
-        document.body.style.cursor="default";
-    }
-*/
-    
 
     return (
         <>

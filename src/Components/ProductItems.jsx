@@ -1,47 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-//import { useDispatch } from 'react-redux'; 
-import { useSelector } from 'react-redux'; 
-
-import { selectUser } from '../features/userSlice';
 import { storage } from '../firebase/firebaseConfig';
-//import { addTo } from '../features/sliceCart';
 
-export const ProductItem = ({ idProducto, subId, nombre, precio, categoria, img }) => {
-    //const path = `/img/products/${categoria}/${subId}.jpg`;
+export const ProductItem = ({ data, addToCart }) => {
+    const { idProducto, subId, nombre, precio, img } = data;
+   
     const [path, setPath] = useState('')
     const getUrl = async () => {
         setPath(await storage.ref(img).getDownloadURL());
     }
     getUrl();
-    const user = useSelector(selectUser)
-
-    //const dispatch = useDispatch();
-
-    const addToCart = (idProducto) => {
-            //localStorage.clear();    
-             let data = JSON.parse(localStorage.getItem('cart'));
-            let nuevo = {
-                'idProducto': idProducto,
-                'subId': subId,
-                'categoria': categoria,
-                'nombre': nombre,
-                'precio': precio,
-            }
-            let existe = localStorage.getItem('cart');
-            if(data == null){
-                data = [];
-            }
-            if(existe == null){
-                existe = "";
-            }
-            
-            if(!existe.includes(idProducto)){
-                data.push(nuevo);
-                localStorage.setItem('cart', JSON.stringify(data)) 
-            }
-            console.log(existe)
-    };
 
     return (
         <div className="col-xs-10 col-md-4" >
@@ -55,7 +23,7 @@ export const ProductItem = ({ idProducto, subId, nombre, precio, categoria, img 
                 <div className="col-10 text-center">
                     <h4 className="card-text col-8 text-center">$ {precio}.00 MXN</h4> 
                     <Link className="card-text btn col-8 " to={`/producto/${idProducto}` }>Ver Más ...</Link>
-                    <button className="btn btn-light col-8" onClick={() => addToCart(idProducto)} >Agregar</button>
+                    <button className="btn btn-light col-8" onClick={() => addToCart(data)} >Agregar</button>
                 </div>
             </div>
         </div>

@@ -2,14 +2,14 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import Footer from '../components/Footer'
 import NavBar from '../components/Navbar'
-import { sesion, logout, selectUser } from '../features/userSlice';
+import { selectUser } from '../features/userSlice';
+
 
 const User = () => {
     const user = useSelector(selectUser)
 
     
     let { name, email} = []
-    let path;
     console.log(user)
     if(user){
         name = user.name;

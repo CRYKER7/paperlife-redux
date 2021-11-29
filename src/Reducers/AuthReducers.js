@@ -7,11 +7,11 @@ export const AuthReducer = ( state, action ) => {
             return { log: true };
         case authTypes.logout:
             return { log: false };
+        
         case "add":
            return[...state, action.payload]
-
         case "delete":
-           return state.filter ((actual) => actual.id !== action.payload);
+           //return state.filter ((actual) => actual.id !== action.payload);
         case "productos":
             return 
         default: 

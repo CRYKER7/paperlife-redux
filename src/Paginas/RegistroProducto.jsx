@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Footer from '../components/Footer'
 import NavBar from '../components/Navbar'
 import { db, storage } from '../firebase/firebaseConfig'
@@ -39,10 +39,10 @@ const RegistroProducto = () => {
             pdf: pdfPath
         })
         .then((docRef) => {
-            console.log("Ya jalo: ", docRef.id);
+            //console.log("Ya jalo: ", docRef.id);
         })
         .catch((error) => {
-            console.error("Error adding document: ", error);
+            //console.error("Error adding document: ", error);
         });
         setCategoria('');
         setDescripcion('');

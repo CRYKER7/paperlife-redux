@@ -14,15 +14,20 @@ const NavBar = () => {
     const user = useSelector(selectUser)
     const dispatch = useDispatch();
 
-    const cart = localStorage.getItem('cart');
-    const [cant, setCant] = useState([])
-    const [cantInCart, setCantInCart] = useState( 0 )
+   
+    //const {cart, setCart} = useState([])
+    //const [cant, setCant] = useState( [] )
+    const [cantInCart, setCantInCart] = useState(0)
 
+    //cart ? setCantInCart( JSON.parse(cart).lenght ) : setCantInCart(0)  
+    
     useEffect(() => {
-        cart ? setCant(JSON.parse(cart)) : setCant(0)
-         setCantInCart(cant.length)
-        //console.log(cantInCart)
+        //setCart( JSON.parse(localStorage.getItem('cart')) )
+        setCantInCart( cantInCart+1 )
+        console.log(cantInCart)
     },[])
+
+    
 
     useEffect(() => {
         auth.onAuthStateChanged(userAuth => {

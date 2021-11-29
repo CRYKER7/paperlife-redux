@@ -6,6 +6,8 @@ const CartItems = ({data, delFromCart}) => {
     let {idProducto, subId, nombre, precio, categoria} = data;
     const path = `/img/products/${categoria}/${subId}.jpg`;
 
+
+
     return (
         <> 
         <div className="container m-1 col-11 card row d-flex align-items-center my-3">
