@@ -45,7 +45,8 @@ const Cart = () => {
         //alert("Se elimino correctamente");
     }
 
-    const comprar = () => {
+
+    const comprar = async () => {
         if(user){
             let items =  []
             cart.map(item => {
@@ -55,13 +56,14 @@ const Cart = () => {
                 user: user.uid,
                 productos: items
             })
-            localStorage.clear()
             window.location.href = "/perfil"
         }else{
             alert("Por favor inicia Sesion para continuar")
             loginGoogle()
         }
     }   
+
+
 
     const loginGoogle = async () => {
         const provider = new firebase.auth.GoogleAuthProvider()
