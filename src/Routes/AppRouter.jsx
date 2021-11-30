@@ -59,7 +59,7 @@ const AppRouter = () => {
                 <Route exact path="/productos" element={<Catalogo />} />
                 <Route path="/producto/:id" element={<ProductScreen/> } />
                 <Route path="/categorias/" element={<Categorias/> } />
-                <Route path="/productos/:categorias" element={<CategoriaScreen /> } />
+                <Route path="/productos/:categoria" element={<CategoriaScreen /> } />
                 { user ? 
                     user.email === "contactopaperlife@gmail.com" ? 
                         <Route exat path="/registroProducto" element={<RegistroProducto/> } />    
