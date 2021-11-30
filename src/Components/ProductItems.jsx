@@ -1,15 +1,46 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { consultaStock } from '../features/slice';
 import { storage } from '../firebase/firebaseConfig';
 
-export const ProductItem = ({ data, addToCart }) => {
-    const { idProducto, subId, nombre, precio, img } = data;
+export const ProductItem = ({ data }) => {
+    const { idProducto, subId, categoria, nombre, precio, img } = data;
    
     const [path, setPath] = useState('')
     const getUrl = async () => {
         setPath(await storage.ref(img).getDownloadURL());
     }
     getUrl();
+
+
+    const addToCart = () => {
+        let data = JSON.parse(localStorage.getItem('cart'));
+        let nuevo = {
+            'idProducto': idProducto,
+            'subId': subId,
+            'categoria': categoria,
+            'nombre': nombre,
+            'precio': precio,
+            'img': img
+        }
+        let existe = localStorage.getItem('cart');
+        
+        if(existe == null){
+            existe = "";
+        }
+        if(data == null){
+            data = [];
+        }
+        
+        if(!existe.includes(idProducto)){
+            data.push(nuevo);
+            localStorage.setItem('cart', JSON.stringify(data)) 
+            alert("Se agrego correctamente");
+        }else{
+            alert("Ya existe en el carrito");
+        }
+    };  
+
 
     return (
         <div className="col-xs-10 col-md-4" >
@@ -23,7 +54,7 @@ export const ProductItem = ({ data, addToCart }) => {
                 <div className="col-10 text-center">
                     <h4 className="card-text col-8 text-center">$ {precio}.00 MXN</h4> 
                     <Link className="card-text btn col-8 " to={`/producto/${idProducto}` }>Ver Más ...</Link>
-                    <button className="btn btn-light col-8" onClick={() => addToCart(data)} >Agregar</button>
+                    <button className="btn btn-light col-8" onClick={() => addToCart(idProducto)} >Agregar</button>
                 </div>
             </div>
         </div>

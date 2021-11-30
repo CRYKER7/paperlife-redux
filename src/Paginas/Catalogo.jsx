@@ -1,23 +1,13 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'; 
+import { useSelector } from 'react-redux'; 
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 import ProductItem from '../components/ProductItems';
 import { consultaStock } from '../features/slice';
-import { addTo } from '../features/sliceCart';
 
-const ShoppingCart = () => {
+const Catalogo = () => {
     const productosLista = useSelector(consultaStock);
-    const dispatch = useDispatch()
-    
-    
-    const addToCart = (data) => {
-        dispatch(addTo({ 
-            data
-        } ))
-    }
-
 
     return (
         <>
@@ -32,7 +22,6 @@ const ShoppingCart = () => {
                             <ProductItem
                                 key={producto.idProducto}
                                 data={ producto }
-                                addToCart={addToCart}
                             />
                         ))
                     }
@@ -48,4 +37,4 @@ const ShoppingCart = () => {
     )
 }
 
-export default ShoppingCart
+export default Catalogo

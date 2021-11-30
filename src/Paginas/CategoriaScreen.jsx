@@ -13,7 +13,7 @@ import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 
-const ProductScreen =({ history }) => {
+const CategoriaScreen =({ history }) => {
     const productosLista = useSelector(consultaStock);
     const { id } = useParams();
     
@@ -97,4 +97,4 @@ const ProductScreen =({ history }) => {
     );
 };
 
-export default ProductScreen;
+export default CategoriaScreen;

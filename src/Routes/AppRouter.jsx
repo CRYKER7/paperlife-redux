@@ -12,15 +12,14 @@ import Inicio from '../Paginas/Inicio';
 import RegistroProducto from '../Paginas/RegistroProducto';
 import Cart from '../Paginas/Cart';
 import User from '../Paginas/User';
-import { addTo } from '../features/sliceCart';
-
-
+import Categorias from '../Paginas/Categorias';
+import CategoriaScreen from '../Paginas/CategoriaScreen';
 
 const AppRouter = () => {
 
     const dispatch = useDispatch();
     const user = useSelector(selectUser)
-    
+
     useEffect(() => {
         auth.onAuthStateChanged(userAuth => {
             if (userAuth) {
@@ -52,14 +51,6 @@ const AppRouter = () => {
             })
     },[]) 
 
-    useEffect(() => {
-        dispatch(addTo({
-            
-        }))        
-    }, [])
-
-
-    
     return (
         <>
         <Router>
@@ -67,6 +58,8 @@ const AppRouter = () => {
                 <Route path="/" element={<Inicio/>} />    
                 <Route exact path="/productos" element={<Catalogo />} />
                 <Route path="/producto/:id" element={<ProductScreen/> } />
+                <Route path="/categorias/" element={<Categorias/> } />
+                <Route path="/productos/:categorias" element={<CategoriaScreen /> } />
                 { user ? 
                     user.email === "contactopaperlife@gmail.com" ? 
                         <Route exat path="/registroProducto" element={<RegistroProducto/> } />    
@@ -74,10 +67,8 @@ const AppRouter = () => {
                         <Route exat path="/registroProducto" element={<Inicio/> } />
                     :  
                     <></>
-
                 }
-                
-                <Route exat path="/carrito" element={<Cart /> } /> 
+                <Route exat path="/carrito" element={<Cart/> } /> 
                 <Route exat path="/perfil" element={<User /> } /> 
                
                {/* Redirect cambio por Navigate to */}

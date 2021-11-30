@@ -1,12 +1,17 @@
-import React from 'react'
+import React,{ useState } from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { storage } from '../firebase/firebaseConfig';
 
 const CartItems = ({data, delFromCart}) => {
-    let {idProducto, subId, nombre, precio, categoria} = data;
-    const path = `/img/products/${categoria}/${subId}.jpg`;
-
-
+    let {idProducto, subId, nombre, precio, categoria, img} = data;
+    
+    const [path, setPath] = useState('')
+    const getUrl = async () => {
+        setPath(await storage.ref(img).getDownloadURL());
+    }
+    getUrl();
 
     return (
         <> 
@@ -22,7 +27,7 @@ const CartItems = ({data, delFromCart}) => {
                     </Link>
                     
                     <div className="col-xs-10 text-center align-items-center row">
-                        <button className="col-md-3 btn btn-light" onClick={() => delFromCart(idProducto)} >Eliminar</button>&nbsp;&nbsp;
+                        <button className="col-md-3 btn btn-light" onClick={() => delFromCart(data)} >Eliminar</button>&nbsp;&nbsp;
                     </div>
                     
                 </div>

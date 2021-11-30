@@ -18,11 +18,11 @@ const NavBar = () => {
     //const {cart, setCart} = useState([])
     //const [cant, setCant] = useState( [] )
     const [cantInCart, setCantInCart] = useState(0)
-
+    
     //cart ? setCantInCart( JSON.parse(cart).lenght ) : setCantInCart(0)  
     
     useEffect(() => {
-        //setCart( JSON.parse(localStorage.getItem('cart')) )
+        setCantInCart( JSON.parse(localStorage.getItem('cart') ) )
         setCantInCart( cantInCart+1 )
         console.log(cantInCart)
     },[])
@@ -74,11 +74,14 @@ const NavBar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav mx-auto mb-2 mb-lg-0 row text-center">
                         
-                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-3 col-xs-12 m-3 m-md-0">
+                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-2 col-xs-12 m-3 m-md-0">
                             <NavLink className="active text-uppercase text-white" to="/">Inicio</NavLink>
                         </li>
-                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-3 col-xs-12 m-3 m-md-0">
+                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-2 col-xs-12 m-3 m-md-0">
                             <NavLink className="active text-uppercase text-white" to="/productos">Catálago</NavLink>
+                        </li>
+                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-2 col-xs-12 m-3 m-md-0">
+                            <NavLink className="active text-uppercase text-white" to="/categorias">Categorias</NavLink>
                         </li>
                         
                         { user ? 
