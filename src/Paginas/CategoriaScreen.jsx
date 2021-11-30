@@ -1,49 +1,48 @@
-import React,{ useState } from "react";
+import React from "react";
 
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'; 
 
-//import { TYPES } from '../Actions/shoppingActions';
-//import { shoppingInitialState, shoppingReducer } from '../Reducers/shoppingReducer'
 import { consultaStock  } from '../features/slice';
-import { storage } from '../firebase/firebaseConfig';
 
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ProductItem from '../components/ProductItems';
 
 
 const CategoriaScreen =({ history }) => {
     const { categoria } = useParams();
     const productos = useSelector(consultaStock)
     
-    /*
-    productos = [productos].filter("categoria", categoria)
+    //const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
 
-    */
-    function categoriaCompleta(cate){
-        return productos.categoria === cate;
-    }
-
-    /* const todaCategoria = categoriaCompleta(categoria)
-
-    console.log(todaCategoria) */
+    //console.log(categoria.replace('%20', ' '));
+    //console.log(categoria)
 
     return (
         <>
         <NavBar/>
         
         <div className="container mt-5 mb-5 text-center">
-            <div className="card text-center align-items-center row" >
                 {
                     <>
-                    <div className="col-xs-12 xol-md-4">
-
+                    <div className="row justify-content-">
+                    {
+                    productos.map((producto) =>  (
+                        producto.categoria === categoria ?
+                        <ProductItem
+                                key={producto.idProducto}
+                                data={ producto }
+                            />
+                        :
+                        <></>
+                    ))
+                }
                     </div>
                     </>
                 }
                 
-            </div>
         </div>
         
         <Footer/>

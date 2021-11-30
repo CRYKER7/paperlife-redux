@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { consultaStock } from '../features/slice';
 import { storage } from '../firebase/firebaseConfig';
 
 export const ProductItem = ({ data }) => {
@@ -35,7 +34,7 @@ export const ProductItem = ({ data }) => {
         if(!existe.includes(idProducto)){
             data.push(nuevo);
             localStorage.setItem('cart', JSON.stringify(data)) 
-            alert("Se agrego correctamente");
+            alert("Agregado al carrito");
         }else{
             alert("Ya existe en el carrito");
         }

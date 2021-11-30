@@ -10,12 +10,12 @@ const User = () => {
 
     
     let { name, email} = []
-    console.log(user)
+    //console.log(user)
     if(user){
         name = user.name;
         email = user.email;
-
     }
+
 
     return (
         <>

@@ -20,19 +20,19 @@ const Slider = () => {
                 </div>
                 
                 <div className="carousel-item">
-                    <a href="/productos/StarWars"><img src="/img/sliders/Banner_StarWars.jpg" className="d-block w-100" alt="..."/></a>
+                    <a href="/productos/Star Wars"><img src="/img/sliders/Banner_StarWars.jpg" className="d-block w-100" alt="..."/></a>
                     <div className="carousel-caption">
                     </div>
                 </div>
 
                 <div className="carousel-item">
-                    <a href="/productos/Pokemon"><img src="/img/sliders/Banner_Pokemon.jpg" className="d-block w-100" alt="..."/></a>
+                    <a href="/productos/Anime"><img src="/img/sliders/Banner_Pokemon.jpg" className="d-block w-100" alt="..."/></a>
                     <div className="carousel-caption">
                     </div>
                 </div>
 
                 <div className="carousel-item">
-                    <a href="/productos/HoraAventura"><img src="/img/sliders/Banner_HoraAventura.jpg" className="d-block w-100" alt="..."/></a>
+                    <a href="/productos/Hora de Aventura"><img src="/img/sliders/Banner_HoraAventura.jpg" className="d-block w-100" alt="..."/></a>
                     <div className="carousel-caption">
                     </div>
                 </div>

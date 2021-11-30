@@ -7,8 +7,6 @@ import firebase from 'firebase';
 
 import { sesion, logout, selectUser } from '../features/userSlice';
 
-
-
 const NavBar = () => {
 
     const user = useSelector(selectUser)
@@ -24,10 +22,8 @@ const NavBar = () => {
     useEffect(() => {
         setCantInCart( JSON.parse(localStorage.getItem('cart') ) )
         setCantInCart( cantInCart+1 )
-        console.log(cantInCart)
+        //console.log(cantInCart)
     },[])
-
-    
 
     useEffect(() => {
         auth.onAuthStateChanged(userAuth => {
@@ -64,7 +60,7 @@ const NavBar = () => {
                 
                 <NavLink className="active containerZ text-uppercase text-white sirender mb-4" to="/carrito">
                     <img className="iconsss" src="/img/carrito.png" alt="carrito icon"/>
-                    <div className="inCart">{cantInCart}</div>
+                    {/* <div className="inCart">{cantInCart}</div> */}
                  </NavLink>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbaNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +68,7 @@ const NavBar = () => {
                 </button> 
             
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav mx-auto mb-2 mb-lg-0 row text-center">
+                    <ul className="navbar-nav mx-auto mb-2 mb-lg-0 row text-center col-md-10">
                         
                         <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-2 col-xs-12 m-3 m-md-0">
                             <NavLink className="active text-uppercase text-white" to="/">Inicio</NavLink>
@@ -105,7 +101,7 @@ const NavBar = () => {
                     <div className="nav-item mr-3 norender row">
                         <NavLink className="active containerZ text-uppercase text-white" to="/carrito">
                             <img className="iconsss" src="/img/carrito.png" alt="carrito icon"/>
-                            <div className="inCart">{cantInCart}</div>
+                            {/* <div className="inCart">{cantInCart}</div> */}
                         </NavLink>
                     </div>
                     <div className="nav-item px-lg-4 d-flex mt-sm-5 mt-md-0 ml-5">

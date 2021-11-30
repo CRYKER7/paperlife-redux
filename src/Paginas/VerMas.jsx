@@ -62,7 +62,7 @@ const ProductScreen =({ history }) => {
         if(!existe.includes(id)){
             data.push(nuevo);
             localStorage.setItem('cart', JSON.stringify(data)) 
-            alert("Se agrego correctamente");
+            alert("Agregado al carrito");
         }else{
             alert("Ya existe en el carrito");
         }
@@ -84,7 +84,7 @@ const ProductScreen =({ history }) => {
                         <h3 className="card-text row ">Categoria: {categoria}</h3>
                         <h4 className="card-text row ">Precio:$ {precio}.00 MXN</h4> 
                         <div className="card-text row text-center align-items-center">
-                            <button className="btn btn-light col-8" onClick={() => addToCart(id)} >Agregar</button>
+                            <button className="btn btn-light col-5" onClick={() => addToCart(id)} >Agregar</button>
                             <Link to="/productos" className="btn btn-warning col-5">Regresar</Link>
                         </div>
                     </div>

@@ -13,7 +13,7 @@ export const Login = () => {
     const handleSubmitLogin = (e) => {
         e.preventDefault();
         auth.signInWithEmailAndPassword(email, password).then(() =>
-        console.log('login'))
+        //console.log('login'))
         
         setName('')
         setEmail('')
@@ -29,10 +29,10 @@ export const Login = () => {
             userAuth.user.updateProfile({
                 displayName: name
             }).then(() => {
-                console.log('login')
+                //console.log('login')
             })
             .catch (error => {
-                console.log(error)
+                //console.log(error)
             })
         })
         setName('')
