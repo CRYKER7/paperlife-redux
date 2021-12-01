@@ -36,7 +36,7 @@ const Categorias = () => {
                         <div className="card align-items-center text-center">
                         
                         <h3 className="card-title text-uppercase tutulo-personal">{ categoria.categoria } </h3>
-                        {/* <img className="card-img-top" src={path} alt={nombre} style={{ width: "80%", height: "80%"}} /> */}
+                        <img className="card-img-top" src={'./img/categorias/'+categoria.categoria+'.png'} alt={categoria.categoria} style={{ width: "60%", height: "auto"}} />
                     
                         </div>
                     </Link>
