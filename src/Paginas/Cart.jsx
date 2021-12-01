@@ -52,7 +52,7 @@ const Cart = () => {
             cart.map(item => {
                 items.push(item.idProducto)
             })
-            db.collection("compras").add({
+            db.collection('compras').add({
                 user: user.uid,
                 productos: items
             })

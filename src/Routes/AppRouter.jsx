@@ -36,7 +36,7 @@ const AppRouter = () => {
     },[])
 
     useEffect(() => {
-        db.collection('productos').orderBy('categoria', "asc")
+        db.collection('productos').orderBy('categoria').orderBy('subId', "asc")
             .onSnapshot((snapshot) => {
                 dispatch(saveTodo(snapshot.docs.map(product => ({
                     idProducto: product.id,
@@ -56,7 +56,7 @@ const AppRouter = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<Inicio/>} />    
-                <Route exact path="/productos" element={<Catalogo />} />
+                <Route path="/productos" element={<Catalogo />} />
                 <Route path="/producto/:id" element={<ProductScreen/> } />
                 <Route path="/categorias/" element={<Categorias/> } />
                 <Route path="/productos/:categoria" element={<CategoriaScreen /> } />
@@ -68,7 +68,7 @@ const AppRouter = () => {
                     :  
                     <></>
                 }
-                <Route exat path="/carrito" element={<Cart/> } /> 
+                <Route path="/carrito" element={<Cart/> } /> 
                 <Route exat path="/perfil" element={<User /> } /> 
                
                {/* Redirect cambio por Navigate to */}

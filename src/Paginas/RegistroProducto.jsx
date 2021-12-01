@@ -125,7 +125,8 @@ const RegistroProducto = () => {
                     </form>
 
                     <div className="text-center row ">
-                            <h4>El estaus del producto se generara automaticamente como inactivo debera modificarlo y confirmar los datos para validar su estatus activo y ser visuble al publico</h4>
+                            <h4>El estaus del producto se generara automaticamente como activo debera 
+                                confirmar los datos que registrara ya que sera visible al publico</h4>
                     </div>
 
                 </div>

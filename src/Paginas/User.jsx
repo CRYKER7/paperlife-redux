@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import Footer from '../components/Footer'
 import NavBar from '../components/Navbar'
 import { selectUser } from '../features/userSlice';
-import { db, auth } from '../firebase/firebaseConfig'
+import { db } from '../firebase/firebaseConfig'
 
 
 const User = () => {
@@ -18,15 +18,26 @@ const User = () => {
     }
 
     //localStorage.clear()
-    let misCompras = [];
+    let misCompras =  []
+
+    useEffect(() => {
+        db.collection('productos').orderBy('categoria').orderBy('subId', "asc")
+            .onSnapshot((snapshot) => {
+                snapshot.docs.map(item => {
+                    console.log(item)
+                })
+            })
+    },[]) 
 
     useEffect(() => {
         db.collection('compras')
-            .onSnapshot(snapshot => {
-                snapshot.docs.map(product => ({
-                    
-                }))
-            })
+            .onSnapshot((snapshot) => {
+                snapshot.docs.map(item => {
+                    console.log(item)
+                })
+            }
+            )
+            //console.log(misCompras)
     },[]) 
 
 
@@ -36,18 +47,19 @@ const User = () => {
         <div className="container userData text-center my-3 p-3">
             <div className="row text-center justify-content-center">
                 <h4>{name}</h4>
-                <h5>{email}</h5>
+                <h4>{email}</h4>
+                <h4>{uid}</h4>
                 <hr/>
                 <h4>Mis compras</h4>
                 {
                 
-                misCompras ? 
+                misCompras !== null ? 
                 <>
                 {
                 
                 misCompras.map((compras) => (
                     <>
-                    {compras}
+                    {compras.uid}
                     </>
                 ))
                 }

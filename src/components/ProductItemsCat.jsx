@@ -46,7 +46,7 @@ export const ProductItem = ({ data }) => {
             <div className="card align-items-center text-center">
                 <div className="col-12 d-flex text-center row mb-md-4 mb-xs-1" >
                     <Link className="card-link text-black" to={`/producto/${idProducto}` }>
-                        <h4 className="card-title text-uppercase tutulo-personal">{nombre} </h4>
+                        <h4 className="card-title text-uppercase tutulo-personal">#{subId}-{nombre} </h4>
                         <img className="card-img-top" src={path} alt={nombre} style={{ width: "80%", height: "80%"}} />
                     </Link>
                 </div>

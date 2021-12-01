@@ -1,14 +1,13 @@
 import React from "react";
 
 import { useParams } from 'react-router'
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'; 
 
 import { consultaStock  } from '../features/slice';
 
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
-import ProductItem from '../components/ProductItems';
+import ProductItem from '../components/ProductItemsCat';
 
 
 const CategoriaScreen =({ history }) => {
