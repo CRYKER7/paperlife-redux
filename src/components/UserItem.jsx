@@ -13,7 +13,6 @@ const UserItem = ({data}) => {
     }
     const getPdfUrl = async () => {
         setPdfPath(await storage.ref('pdf/' + categoria + '/' + subId + '.pdf').getDownloadURL());
-        console.log(pdfPath)
     }
     getImgUrl();
     getPdfUrl();
@@ -26,7 +25,7 @@ const UserItem = ({data}) => {
         <> 
         <div className="container m-1 col-11 card row d-flex align-items-center my-3">
             <div className="row d-flex align-items-center text-start" >
-                <img src={imgPath} alt={nombre} style={{ width: "25%"}}/>
+                <img className="user-producto" src={imgPath} alt={nombre}/>
                 <div  className="col-md-9  d-flex align-items-center row">
                     <h4 className="col-12 text-uppercase ">#{subId} {categoria} - {nombre}</h4>
                     <button className="btn btn-warning" onClick={descargarArchivo}>Ver Archivo</button>

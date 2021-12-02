@@ -57,8 +57,8 @@ const User = () => {
         <div className="container userData text-center my-3 p-3">
             <div className="row text-center justify-content-center">
                 <h4>{name}</h4>
-                <h4>{email}</h4>
-                <h4>{uid}</h4>
+                <h5>{email}</h5>
+                {/* <h5>{uid}</h5> */}
                 <h4>Mis compras</h4>
                 {misCompras.map(producto => {
                     return(
@@ -66,6 +66,7 @@ const User = () => {
                             if (data.idProducto == producto) return(
                                 <>
                                     <UserItem
+                                        key={data.idProducto}
                                         data={data}
                                     />
                                 </>

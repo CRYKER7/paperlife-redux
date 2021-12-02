@@ -535,3 +535,12 @@ a {
   z-index: 2;
   display: none;
 }
+.user-producto {
+  width: 25%;
+  margin: 0 auto;
+}
+@media (max-width: 992px) {
+  .user-producto {
+    width: 80%;
+  }
+}
