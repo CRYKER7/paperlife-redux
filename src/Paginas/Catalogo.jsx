@@ -16,8 +16,8 @@ const Catalogo = () => {
            <h3>Productos</h3> 
            <div className="row justify-content-center mb-3">
                {
-                   productosLista ? <>
-                   { 
+                    productosLista ? <>
+                    {
                         productosLista.map(producto => (
                             <ProductItem
                                 key={producto.idProducto}

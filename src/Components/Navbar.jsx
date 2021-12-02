@@ -42,7 +42,8 @@ const NavBar = () => {
 
     const salir = () => {
         dispatch(logout())
-        auth.signOut()
+        auth.signOut();
+        window.location.reload()
     }
 
     const loginGoogle = async () => {

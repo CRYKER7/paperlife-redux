@@ -1,13 +1,16 @@
-import React,{ useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import React,{ useEffect, useState } from 'react'
+import { connectAdvanced, useSelector } from 'react-redux'
 import Footer from '../components/Footer'
 import NavBar from '../components/Navbar'
 import { selectUser } from '../features/userSlice';
 import { db } from '../firebase/firebaseConfig'
+import { consultaStock } from '../features/slice';
+import UserItem from '../components/UserItem';
 
 
 const User = () => {
     const user = useSelector(selectUser)
+    const productosLista = useSelector(consultaStock);
     
     let { name, email, uid} = []
     //console.log(user)
@@ -18,27 +21,34 @@ const User = () => {
     }
 
     //localStorage.clear()
-    let misCompras =  []
+    const [misCompras, setMisCompras] =  useState([])
+    let productos = []
 
     useEffect(() => {
         db.collection('productos').orderBy('categoria').orderBy('subId', "asc")
             .onSnapshot((snapshot) => {
                 snapshot.docs.map(item => {
-                    console.log(item)
+                    //console.log(item)
                 })
             })
     },[]) 
 
-    useEffect(() => {
-        db.collection('compras')
-            .onSnapshot((snapshot) => {
-                snapshot.docs.map(item => {
-                    console.log(item)
-                })
-            }
+    useEffect(async () => {
+        if (user) {
+            let autorizar = false
+            await db.collection('compras').where("user", "==", uid)
+                .onSnapshot((snapshot) => {
+                    snapshot.docs.map(item => {
+                        item.data().productos.map(element => {
+                            if (!productos.includes(element))
+                                productos.push(element)
+                        })
+                    })
+                    setMisCompras(productos)
+                }
             )
-            //console.log(misCompras)
-    },[]) 
+        }
+    },[user]) 
 
 
     return (
@@ -49,25 +59,20 @@ const User = () => {
                 <h4>{name}</h4>
                 <h4>{email}</h4>
                 <h4>{uid}</h4>
-                <hr/>
                 <h4>Mis compras</h4>
-                {
-                
-                misCompras !== null ? 
-                <>
-                {
-                
-                misCompras.map((compras) => (
-                    <>
-                    {compras.uid}
-                    </>
-                ))
-                }
-                </>
-                :
-                <>
-                </>
-            }
+                {misCompras.map(producto => {
+                    return(
+                        productosLista.map(data => {
+                            if (data.idProducto == producto) return(
+                                <>
+                                    <UserItem
+                                        data={data}
+                                    />
+                                </>
+                            )
+                        })
+                    )
+                })}
             </div>
         </div>
         <Footer/>
