@@ -71,11 +71,11 @@ const AppRouter = () => {
 
                 <Route path="/carrito" element={<Cart/> } /> 
                 { user ?
-                    <Route exat path="/perfil" element={<User /> } /> 
+                    <Route exact path="/perfil" element={<User /> } /> 
                     :
-                    <Route exat path="/perfil" element={<Inicio/> } /> 
+                    <Route exact path="/perfil" element={<Inicio/> } /> 
                 }
-                <Route exat path="/perfil" element={<User /> } /> 
+                <Route exact path="/perfil" element={<User /> } /> 
                
                {/* Redirect cambio por Navigate to */}
                 <Route path="*" element={<Inicio/>} />
