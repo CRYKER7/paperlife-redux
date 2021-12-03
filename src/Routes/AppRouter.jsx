@@ -62,13 +62,19 @@ const AppRouter = () => {
                 <Route path="/productos/:categoria" element={<CategoriaScreen /> } />
                 { user ? 
                     user.email === "contactopaperlife@gmail.com" ? 
-                        <Route exat path="/registroProducto" element={<RegistroProducto/> } />    
+                        <Route exact path="/registroProducto" element={<RegistroProducto/> } />    
                         :
-                        <Route exat path="/registroProducto" element={<Inicio/> } />
+                        <Route exact path="/registroProducto" element={<Inicio/> } />
                     :  
                     <></>
                 }
+
                 <Route path="/carrito" element={<Cart/> } /> 
+                { user ?
+                    <Route exat path="/perfil" element={<User /> } /> 
+                    :
+                    <Route exat path="/perfil" element={<Inicio/> } /> 
+                }
                 <Route exat path="/perfil" element={<User /> } /> 
                
                {/* Redirect cambio por Navigate to */}

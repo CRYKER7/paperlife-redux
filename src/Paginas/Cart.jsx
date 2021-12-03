@@ -114,8 +114,8 @@ const Cart = () => {
                     </>
                     :
                     <>
-                        <h3>Sin Productos agregue productos antes</h3>
-                        <Link to="/productos" className="btn btn-warning col-5">Regresar al catalogo</Link>
+                        <h3 className="mb-3">Sin Productos agregue productos antes</h3>
+                        <Link to="/productos" className="btn btn-warning col-5 mb-5">Regresar al catalogo</Link>
                     </>
                     }
                     
