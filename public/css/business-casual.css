@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-business-casual/blob/master/LICENSE)
  */
 body {
-  font-family: "Kareon";
+  font-family: "Montserrat",sans-serif;
   background-image: linear-gradient(#f96d00, #f2f2f242);
   background-attachment: fixed;
   background-position: center;
@@ -32,12 +32,19 @@ p {
 }
 
 .logo {
-  max-width: 80px;
+  max-width: 50px;
+}
+
+.btn-ingresar, .btn-salir{
+  margin: 0 auto;
+  height: 35px;
 }
 
 .text-faded {
   color: rgba(255, 255, 255, 0.3);
 }
+
+
 
 .site-heading {
   margin-top: 1rem;

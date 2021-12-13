@@ -12,8 +12,8 @@ const Catalogo = () => {
     return (
         <>
         <NavBar/>
-        <div className="container-fluid mt-5 text-center">
-           <h3>Productos</h3> 
+        <div className="container-fluid mt-3 text-center">
+           <h1>Productos</h1> 
            <div className="row justify-content-center mb-3">
                {
                     productosLista ? <>

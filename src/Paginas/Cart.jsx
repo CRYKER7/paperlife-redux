@@ -97,9 +97,9 @@ const Cart = () => {
     return (
         <>
             <NavBar/>
-            <div className="container-fluid mt-5 text-center">
-            <h3>Carrito</h3> 
-                <div className="row justify-content-center">
+            <div className="container-fluid mt-3  mb-5 text-center">
+            <h1>Carrito</h1> 
+                <div className="row justify-content-center mb-5">
                    <div className="row justify-content-center mb-5">
                     {(cantInCart >= 1) ? 
                     <>
@@ -114,8 +114,10 @@ const Cart = () => {
                     </>
                     :
                     <>
-                        <h3 className="mb-3">Sin Productos agregue productos antes</h3>
-                        <Link to="/productos" className="btn btn-warning col-5 mb-5">Regresar al catalogo</Link>
+                        <h1 className="mb-3">Sin Productos agregue productos antes</h1>
+                        <br/><br/><br/><br/><br/>
+                        <Link to="/productos" className="btn btn-warning col-5 mb-5"><h3>Regresar al catalogo<h3/></h3></Link>
+                        <br/><br/><br/><br/><br/>
                     </>
                     }
                     

@@ -1,5 +1,5 @@
 import React,{ useEffect, useState } from 'react'
-import { connectAdvanced, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Footer from '../components/Footer'
 import NavBar from '../components/Navbar'
 import { selectUser } from '../features/userSlice';

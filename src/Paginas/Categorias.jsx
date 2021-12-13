@@ -21,8 +21,8 @@ const Categorias = () => {
     return (
         <>
         <NavBar/>
-        <div className="container-fluid mt-5 text-center">
-           <h3>Categorias</h3> 
+        <div className="container-fluid mt-3 text-center">
+           <h1>Categorias</h1> 
            <div className="row justify-content-center mb-3">
             {
                 

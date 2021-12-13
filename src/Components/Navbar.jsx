@@ -71,56 +71,49 @@ const NavBar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav mx-auto mb-2 mb-lg-0 row text-center col-md-10">
                         
-                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-2 col-xs-12 m-3 m-md-0">
+                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-2 col-xs-12 ">
                             <NavLink className="active text-uppercase text-white" to="/">Inicio</NavLink>
                         </li>
-                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-2 col-xs-12 m-3 m-md-0">
+                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-2 col-xs-12 ">
                             <NavLink className="active text-uppercase text-white" to="/productos">Catálago</NavLink>
                         </li>
-                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-2 col-xs-12 m-3 m-md-0">
+                        <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-2 col-xs-12 ">
                             <NavLink className="active text-uppercase text-white" to="/categorias">Categorias</NavLink>
                         </li>
                         
                         { user ? 
                             user.email === "contactopaperlife@gmail.com" ? 
                                 <>
-                                    <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-3 col-xs-12 m-3 m-md-0">
+                                    <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-3 col-xs-12 ">
                                         <NavLink className="active text-uppercase text-white" to="/registroProducto">Registro</NavLink>
                                     </li>
-                                    <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-3 col-xs-12 m-3 m-md-0">
+                                    <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-3 col-xs-12 ">
                                         <NavLink className="active text-uppercase text-white" to="/perfil">Perfil</NavLink>
                                     </li>
                                 </>
                                 :
-                                <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-5 col-xs-12 m-3 m-md-0">
+                                <li className="nav-item px-lg-4 mt-sm-5 mt-md-0 col-md-5 col-xs-12 ">
                                     <NavLink className="active text-uppercase text-white" to="/perfil">Perfil</NavLink>
                                 </li>
                             :
                                 <>  </>
                         }
                     </ul>
-                    <div className="nav-item mr-3 norender row">
+                    <div className="nav-item norender row">
                         <NavLink className="active containerZ text-uppercase text-white" to="/carrito">
                             <img className="iconsss" src="/img/carrito.png" alt="carrito icon"/>
                             {/* <div className="inCart">{cantInCart}</div> */}
                         </NavLink>
                     </div>
-                    <div className="nav-item px-lg-4 d-flex mt-sm-5 mt-md-0 ml-5">
+                    <div className="nav-item px-lg-0 d-flex">
                         {
                             user ? 
                             <>  
-                                <button className="salir btn btn-propio" onClick={salir}>Salir</button>
+                                <button className="salir btn btn-propio btn-salir" onClick={salir}>Salir</button>
                             </> :
-                                <button className="google btn btn-propio" type="button" onClick={loginGoogle}>Ingresar</button>
-
-                                /*
-                            <NavLink className="active text-uppercase text-white" to="/login">
-                                <img className="logo" src="/img/usuario.png" alt="user icon"/>&nbsp;&nbsp;Login 
-                            </NavLink>
-                            */
+                                <button className="google btn btn-propio btn-ingresar" type="button" onClick={loginGoogle}>Ingresar</button>
                         }
                         
-                        <br/><br/>
                     </div>
                     
                 </div>

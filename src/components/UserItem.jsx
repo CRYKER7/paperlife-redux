@@ -1,10 +1,9 @@
 import React,{ useState } from 'react'
-import { Link } from 'react-router-dom';
 
 import { storage } from '../firebase/firebaseConfig';
 
 const UserItem = ({data}) => {
-    let {idProducto, subId, nombre, precio, categoria, img, pdf} = data;
+    let { subId, nombre, categoria, img, } = data;
     
     const [imgPath, setImgPath] = useState('')
     const [pdfPath, setPdfPath] = useState('')
